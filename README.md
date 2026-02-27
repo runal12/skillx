@@ -55,7 +55,7 @@ A modern web application for connecting people who want to share and learn skill
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/yourusername/skillx.git
+git clone https://github.com/runal12/skillx.git
 cd skillx
 ```
 
@@ -63,8 +63,13 @@ cd skillx
 
 #### Create Virtual Environment
 ```bash
+# On Windows
 python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+venv\Scripts\Activate
+
+# On Mac/Linux
+python -m venv venv
+source venv/bin/activate
 ```
 
 #### Install Dependencies
@@ -78,7 +83,18 @@ pip install -r requirements.txt
 mysql -u root -p
 CREATE DATABASE skillx;
 
-# Update settings.py with your database credentials
+# Update skillx/skillx/settings.py with your database credentials:
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'skillx',
+#         'USER': 'your_mysql_user',
+#         'PASSWORD': 'your_mysql_password',
+#         'HOST': 'localhost',
+#         'PORT': '3306',
+#     }
+# }
+
 # Run migrations
 python manage.py migrate
 
@@ -109,6 +125,26 @@ npm start
 - **Frontend**: http://localhost:3000
 - **Backend API**: http://127.0.0.1:8000/api
 - **Admin Panel**: http://127.0.0.1:8000/admin
+
+## 🚀 Quick Start (One-Command Setup)
+
+```bash
+git clone https://github.com/runal12/skillx.git
+cd skillx
+
+# Backend setup
+python -m venv venv
+venv\Scripts\Activate
+pip install -r requirements.txt
+python manage.py migrate
+python manage.py createsuperuser
+python manage.py runserver
+
+# Frontend setup (in new terminal)
+cd skillx-frontend
+npm install
+npm start
+```
 
 ## 📁 Project Structure
 
