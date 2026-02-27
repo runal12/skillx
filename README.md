@@ -74,7 +74,15 @@ source venv/bin/activate
 
 #### Install Dependencies
 ```bash
+# Option 1: Install from requirements.txt
 pip install -r requirements.txt
+
+# Option 2: Install manually
+pip install django
+pip install djangorestframework
+pip install django-cors-headers
+pip install PyJWT
+pip install mysqlclient
 ```
 
 #### Database Setup
@@ -135,10 +143,10 @@ cd skillx
 # Backend setup
 python -m venv venv
 venv\Scripts\Activate
-pip install -r requirements.txt
-python manage.py migrate
-python manage.py createsuperuser
-python manage.py runserver
+pip install django djangorestframework django-cors-headers PyJWT mysqlclient
+python skillx/manage.py migrate
+python skillx/manage.py createsuperuser
+python skillx/manage.py runserver
 
 # Frontend setup (in new terminal)
 cd skillx-frontend
